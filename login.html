@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- fontawesome css: https://fontawesome.com -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
   <!-- reset.css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
 
@@ -47,13 +50,19 @@
           </div>
         </div>
         <div id="note">
-          <div contenteditable="true" class="txtContent">
-            
-            <img src="https://images.unsplash.com/photo-1581431886211-6b932f8367f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bm90ZWJvb2t8ZW58MHx8MHx8&w=1000&q=80" alt="random image"
-              class="image">
-
+          <div id="login">
+            <div class="idBlock loginBlock">
+              <div class="idIcon"><i class="fa-solid fa-id-badge fa-2x"></i></div>
+              <input id="id" type="text" placeholder="아이디를 입력하세요">
+            </div>
+            <div class="pwBlock loginBlock">
+              <div class="pwIcon"><i class="fa-solid fa-key fa-2x"></i></div>
+              <input id="password" type="password" type="text" placeholder="비밀번호를 입력하세요">
+            </div>
           </div>
-          <!-- <textarea class="txtContent" id="txtContent"></textarea> -->
+          <div class="loginButton">
+            <button id="loginBtn">로그인</button>
+          </div>
         </div>
       </div>
       <aside class="nav">
