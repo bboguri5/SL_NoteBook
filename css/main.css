@@ -84,6 +84,39 @@ button {
 
 }
 
+.wrapper #main #note .noteBtnList
+{
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.wrapper #main #note .noteBtnList > .prev
+{
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  cursor: pointer;
+}
+
+.wrapper #main #note .noteBtnList > .next
+{
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  cursor: pointer;
+}
+
+.wrapper #main #note>span.pageNum
+{
+  position: absolute;
+  right: 50%;
+  bottom: 5%;
+  font-size:20px;
+}
+.hidden
+{
+  z-index: -1;
+}
 
 /* .wrapper #main #note .page1{
   z-index: 1;
@@ -140,7 +173,7 @@ button {
   height: 50px;
 }
 
-.wrapper aside.nav .show {
+.wrapper aside.nav .showResult {
   background: greenyellow;
   width: 220px;
   height: 300px;
