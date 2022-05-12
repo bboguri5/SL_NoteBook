@@ -69,15 +69,15 @@ button {
 .wrapper #main #note {
   position: relative;
   width: 88%;
-
   box-shadow: 10px 5px 5px #333;
   perspective: 8000px;
 }
-.wrapper #main #note .page{
+
+.wrapper #main #note .page {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 32px;
+  /* padding: 0 32px; */
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4), -2px 0 2px rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
@@ -85,21 +85,19 @@ button {
 }
 
 
-/* .wrapper #main #note .page1{
+.wrapper #main #note .page1 {
   z-index: 1;
   transform-origin: left center;
   transition-duration: 1.5s;
   transition-timing-function: ease-in;
   background: blue;
-}
+  transform: rotateY(-360deg);
 
-.wrapper #main #note .page1:active{
+}
+/* 
+.wrapper #main #note .page1:active {
   transform: rotateY(-360deg);
   z-index: -1;
-} */
-
-/* .wrapper #main #note .page2{
-  z-index: 1;
 } */
 
 .wrapper aside.nav {
