@@ -81,7 +81,6 @@ button {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4), -2px 0 2px rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
-
 }
 
 
@@ -91,14 +90,28 @@ button {
   transition-duration: 1.5s;
   transition-timing-function: ease-in;
   background: blue;
-  transform: rotateY(-360deg);
+  /* transform: rotate3d(0, 0, -360deg); */
+  /* transform: rotateY(-360deg); */
+  animation: move 1s 1;
 
 }
-/* 
+
+@keyframes move {
+  0% {
+    transform: rotateY(0);
+
+  }
+
+  100% {
+    transform: rotateY(-360deg);
+
+  }
+}
+
 .wrapper #main #note .page1:active {
   transform: rotateY(-360deg);
   z-index: -1;
-} */
+}
 
 .wrapper aside.nav {
   background: red;
@@ -164,22 +177,28 @@ button {
   overflow: hidden;
 }
 
-
-.txtContent .image {
-  width: 150px;
-  height: 150px;
+.wrapper section #main #note .image {
+  /* background: lightblue; */
   left: 50px;
   top: 50px;
   position: absolute;
-  cursor: move;
+  cursor: pointer;
 }
 
-.wrapper section #main #note #login {
+.wrapper section #main #note .loginSection {
+  width: 100%;
+  height: 100%;
+  background: red;
+  padding-top: 200px;
+  box-sizing: border-box;
+}
+
+.wrapper section #main #note .loginSection #login {
   width: 60%;
   height: 150px;
   background: url("https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg") no-repeat center / 100% 100%;
   border-radius: 10px;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   margin-left: 17%;
   padding: 0px 25px;
   display: flex;
@@ -188,19 +207,7 @@ button {
   justify-content: center;
 }
 
-.wrapper section #main #note #login .loginBlock {
-  display: flex;
-  height: 30%;
-}
-
-.wrapper section #main #note #login .idBlock .idIcon {
-  display: flex;
-  width: 10%;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper section #main #note #login .idBlock #id {
+.wrapper section #main #note .loginSection #login .loginBlock {
   width: 400px;
   border: 1px solid #000;
   padding: 0 10px;
@@ -208,7 +215,14 @@ button {
   margin-top: 3px;
   margin-left: 20px;
   display: flex;
-  border-radius: 10px;
+  border-radius: 10px;  height: 30%;
+}
+
+.wrapper section #main #note .loginSection #login .idBlock .idIcon {
+  display: flex;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper section #main #note #login .pwBlock .pwIcon {
@@ -218,18 +232,7 @@ button {
   justify-content: center;
 }
 
-.wrapper section #main #note #login #password {
-  width: 400px;
-  border: 1px solid #000;
-  padding: 0 10px;
-  box-sizing: border-box;
-  margin-top: 3px;
-  margin-left: 20px;
-  display: flex;
-  border-radius: 10px;
-}
-
-.wrapper section #main #note #loginBtn {
+.wrapper section #main #note .loginSection .loginButton #loginBtn {
   width: 40%;
   height: 50px;
   border-radius: 3px;
@@ -237,4 +240,49 @@ button {
   margin: 30px 220px;
   cursor: pointer;
   background: url("https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg") no-repeat center / 100% 100%;
+}
+
+/* adding icon */
+
+.wrapper section .nav .iconDropdown {
+  width: 80%;
+  height: 50px;
+  overflow: hidden;
+}
+
+.wrapper section .nav .iconDropdown #selectIcon {
+  background: grey;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper section .nav .iconDropdown #selectIcon .fa-caret-down {
+  margin-left: 5px;
+}
+
+.wrapper section .nav .iconDropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 204px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.wrapper section .nav .iconDropdown .dropdown-content i {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.wrapper section .nav .iconDropdown #selectIcon:hover {
+  background: white;
+}
+
+.wrapper section .nav .iconDropdown .dropdown-content i:hover {
+  background-color: #ddd;
 }
