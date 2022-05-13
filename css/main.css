@@ -17,13 +17,15 @@ button {
   padding-top: 64px;
   height: 100vh;
   width: 100%;
+  background: url('https://img.freepik.com/free-photo/flat-lay-photo-of-office-desk-with-laptop-copy-space-background_1150-45598.jpg?w=2000') no-repeat center / 100% 100%;
 }
 
 .wrapper section {
   margin: 0 auto;
+  margin-left: 700px;
   width: 60%;
   height: 900px;
-  border: 2px solid #000;
+  /* border: 2px solid #000; */
   display: flex;
 }
 
@@ -87,6 +89,13 @@ button {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4), -2px 0 2px rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
+  border-radius: 20px;
+}
+
+.wrapper #main #note .page.page2 {
+  /* background: yellow; */
+  padding: 80px;
+  box-sizing: border-box;
 }
 
 .wrapper #main #note .noteBtnList
@@ -153,9 +162,11 @@ button {
 }
 
 .wrapper aside.nav {
-  background: red;
+  /* background: #eec6c6; */
+  background: #fcd8d4;
+
   border-radius: 22px;
-  height: 500px;
+  height: 300px;
   width: 30%;
   margin-top: 200px;
   margin-right: 15px;
@@ -164,6 +175,8 @@ button {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
+  box-shadow: 10px 5px 10px rgb(70, 69, 69);
 }
 
 .wrapper aside.nav .btnList {
@@ -304,8 +317,14 @@ button {
   overflow: hidden;
 }
 
+.wrapper section .nav .iconDropdown:hover #selectIcon {
+  background: white;
+  border-radius: 30px 30px 0 0;
+}
+
 .wrapper section .nav .iconDropdown #selectIcon {
-  background: grey;
+  background: rgb(193, 191, 191);
+  border-radius: 30px;
   cursor: pointer;
   width: 100%;
   height: 100%;
@@ -322,6 +341,10 @@ button {
   min-width: 204px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  border-radius: 0 0 20px 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
 }
 
 .wrapper section .nav .iconDropdown .dropdown-content i {
@@ -331,12 +354,21 @@ button {
   text-decoration: none;
   display: block;
   text-align: left;
+
 }
 
-.wrapper section .nav .iconDropdown #selectIcon:hover {
+/* .wrapper section .nav .iconDropdown #selectIcon:active {
   background: white;
-}
+  border-radius: 30px 30px 0 0;
+
+} */
 
 .wrapper section .nav .iconDropdown .dropdown-content i:hover {
   background-color: #ddd;
+
+}
+
+.zzz
+{
+  border-radius: 30px 30px 0 0;
 }

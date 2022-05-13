@@ -164,9 +164,9 @@ function initialize() {
     const $page = document.querySelector('#note > .page');
     const $navigation = document.querySelector('.nav');
 
-    // // 로그인 페이지만,,,
-    // $page.style.display = 'none';
-    // $navigation.style.visibility = 'hidden';
+    // 로그인 페이지만,,,
+    $page.style.display = 'none';
+    $navigation.style.visibility = 'hidden';
 
 }
 
