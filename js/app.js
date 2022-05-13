@@ -1,39 +1,204 @@
-el = document.querySelector(".image");
+//////////////////////////// global variable ////////////////////////////
+
+// 드래그시 가져올 x,y 좌표
 let newPosX = 0,
-  newPosY = 0,
-  startPosX = 0,
-  startPosY = 0;
+    newPosY = 0,
+    startPosX = 0,
+    startPosY = 0;
 
-// when the user clicks down on the element
-el.addEventListener("mousedown", function (e) {
-  e.preventDefault();
+//////////////////////////// 함수 ////////////////////////////
 
-  // get the starting position of the cursor
-  startPosX = e.clientX;
-  startPosY = e.clientY;
+// 드랍다운 안에 있는 아이콘 클릭 이벤트
+// has to be fa-regular :)
+function eventListenerIcon($iconName) {
 
-  document.addEventListener("mousemove", mouseMove);
+    const $listenIcon = document.querySelector(`.dropdown-content > .${$iconName}`);
+    $listenIcon.addEventListener('click', e => {
 
-  document.addEventListener("mouseup", function () {
-    document.removeEventListener("mousemove", mouseMove);
-  });
-});
+        // 아이콘을 페이지에 추가하기 위해 createElement 하기
+        const $newDiv = document.createElement('div');
+        $newDiv.classList.add('image');
+        $newDiv.innerHTML = `<i class="fa-regular ${$iconName} fa-2x"></i>`;
 
-function mouseMove(e) {
-  // calculate the new position
-  newPosX = startPosX - e.clientX;
-  newPosY = startPosY - e.clientY;
+        const $page = document.querySelector('.page');
+        $page.appendChild($newDiv);
 
-  // with each move we also want to update the start X and Y
-  startPosX = e.clientX;
-  startPosY = e.clientY;
+        // 드래그 함수 콜
+        moveIcon();
+        // console.log($page);
 
-  // set the element's new position:
-  el.style.top = el.offsetTop - newPosY + "px";
-  el.style.left = el.offsetLeft - newPosX + "px";
+        eventClickRemove();
+    });
 }
 
-ShowPage2();
+// 페이지에 추가된 아이콘을 움직이기 위한 함수
+function moveIcon() {
+
+    // list of added icons
+    const elList = document.querySelectorAll('.image');
+
+    // when the user clicks down on the element
+    elList.forEach(el => el.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+
+        // get the starting position of the cursor
+        startPosX = e.clientX;
+        startPosY = e.clientY;
+
+        document.addEventListener('mousemove', mouseMove);
+
+        document.addEventListener('mouseup', function () {
+            document.removeEventListener('mousemove', mouseMove);
+
+        });
+
+        function mouseMove(e) {
+            // calculate the new position
+            newPosX = startPosX - e.clientX;
+            newPosY = startPosY - e.clientY;
+
+            // with each move we also want to update the start X and Y
+            startPosX = e.clientX;
+            startPosY = e.clientY;
+
+            // set the element's new position:
+            el.style.top = (el.offsetTop - newPosY) + "px";
+            el.style.left = (el.offsetLeft - newPosX) + "px";
+        }
+
+    }));
+
+}
+
+// login id and password validation 
+function validateLogin() {
+    const $id = document.getElementById('id');
+    const $pwd = document.getElementById('password');
+
+    // if the id is different or empty, login failed
+    if ($id.value != 'julie' || $id.value.trim() === '') {
+        $id.style.background = 'lightgrey';
+        $id.setAttribute('placeholder', '아이디가 틀렸습니다. 다시 입력해주세요');
+        $id.value = '';
+        return false;
+    }
+
+    // if the password is different or empty, login failed
+    if ($pwd.value != 'haewon' || $pwd.value.trim() === '') {
+        $pwd.style.background = 'lightgrey';
+        $pwd.setAttribute('placeholder', '비밀번호가 틀렸습니다. 다시 입력해주세요');
+        $pwd.value = '';
+        return false;
+    }
+
+    // if all matches, reset background and return true
+    $id.style.background = '';
+    $pwd.style.background = '';
+    return true;
+
+}
+
+// 로그인 성공시 다음 페이지로 넘어가기
+function eventLogin() {
+
+    const $login = document.getElementById('loginBtn');
+    $login.addEventListener('click', e => {
+        e.preventDefault();
+
+        if (!validateLogin()) {
+            return;
+        } else {
+            const $loginSection = document.querySelector('#note > .loginSection');
+            const $page = document.querySelector('#note > .page');
+            const $navigation = document.querySelector('.nav');
+
+            $loginSection.style.display = 'none';
+            $page.style.display = 'block';
+            $navigation.style.visibility = '';
+
+        }
+
+        // const $loginFlip = document.querySelector('.loginSection');
+
+        // $loginFlip.classList.add('page');
+        // $loginFlip.classList.add('page1');
+    });
+
+}
+
+// 드랍다운 박스 나오기/들어가기 이벤트
+function eventDropDown() {
+
+    const $iconBtn = document.querySelector('.iconDropdown');
+    const $dropDown = document.querySelector('.dropdown-content');
+
+    // select icon mouseover, dropdown
+    $iconBtn.addEventListener('mouseover', e => {
+        $dropDown.style.display = 'block';
+        // select icon mouseleave, dropdown disappears
+        $iconBtn.addEventListener('mouseleave', e => {
+            $dropDown.style.display = 'none';
+        });
+    });
+
+}
+
+
+// 아이콘 더블클릭 시 삭제
+function eventClickRemove() {
+    // list of added icons
+    const trashList = document.querySelectorAll('.image');
+
+    // when the user clicks down on the element
+    trashList.forEach(el => el.addEventListener('dblclick', function (e) {
+        e.preventDefault();
+
+        el.parentElement.removeChild(el);
+
+    }));
+}
+
+// login initially, and open note
+function initialize() {
+
+    const $page = document.querySelector('#note > .page');
+    const $navigation = document.querySelector('.nav');
+
+    // // 로그인 페이지만,,,
+    // $page.style.display = 'none';
+    // $navigation.style.visibility = 'hidden';
+
+}
+
+//////////////////////////// 코드 실행 ////////////////////////////
+
+(function () {
+
+
+    initialize();
+
+    const $loginSection = document.querySelector('#note > .loginSection');
+    if ($loginSection != null) {
+        eventLogin();
+    }
+
+    // hover to show dropdown menu
+    eventDropDown();
+
+    // add event listener for each icons
+    eventListenerIcon('fa-address-card');
+    eventListenerIcon('fa-credit-card');
+    eventListenerIcon('fa-bell');
+    eventListenerIcon('fa-hand-point-up');
+    eventListenerIcon('fa-heart');
+    eventListenerIcon('fa-hospital');
+    eventListenerIcon('fa-square-check');
+
+    ShowPage2();
+
+})();
+
+
 
 // Page2 구현
 function ShowPage2() {
@@ -110,13 +275,5 @@ function ShowPage2() {
       globalpageNumber++;
       $next.textContent === "+" ? AddNewPageObject() : ShowMeThePage();
     }
-
-    // if (e.target.classList.contains("prev")) {// 이전
-    //   globalpageNumber--; // 현재페이지번호 - 1 = 이전페이지번호
-    //   ShowPage(); // 이전페이지 보여주기
-    // } else {
-    //   globalpageNumber++; // 현재페이지번호 + 1 = 다음페이지번호
-    //   $next.textContent === "+" ? AddNewPageObject() : ShowPage(); // + 이면 add / > 이면 다음페이지보여주기
-    // }
   });
 }
