@@ -71,8 +71,7 @@ function moveIcon() {
 }
 
 // login id and password validation 
-function checkLogin() {
-
+function validateLogin() {
     const $id = document.getElementById('id');
     const $pwd = document.getElementById('password');
 
@@ -101,13 +100,28 @@ function checkLogin() {
 
 // 로그인 성공시 다음 페이지로 넘어가기
 function eventLogin() {
+
     const $login = document.getElementById('loginBtn');
     $login.addEventListener('click', e => {
         e.preventDefault();
-        const $loginFlip = document.querySelector('.loginSection');
 
-        $loginFlip.classList.add('page');
-        $loginFlip.classList.add('page1');
+        if (!validateLogin()) {
+            return;
+        } else {
+            const $loginSection = document.querySelector('#note > .loginSection');
+            const $page = document.querySelector('#note > .page');
+            const $navigation = document.querySelector('.nav');
+
+            $loginSection.style.display = 'none';
+            $page.style.display = 'block';
+            $navigation.style.visibility = '';
+
+        }
+
+        // const $loginFlip = document.querySelector('.loginSection');
+
+        // $loginFlip.classList.add('page');
+        // $loginFlip.classList.add('page1');
     });
 
 }
@@ -129,19 +143,44 @@ function eventDropDown() {
 
 }
 
+
+// 아이콘 더블클릭 시 삭제
 function eventClickRemove() {
     // list of added icons
     const trashList = document.querySelectorAll('.image');
-    
+
     // when the user clicks down on the element
     trashList.forEach(el => el.addEventListener('dblclick', function (e) {
         e.preventDefault();
+
+        el.parentElement.removeChild(el);
+
     }));
+}
+
+// login initially, and open note
+function initialize() {
+
+    const $page = document.querySelector('#note > .page');
+    const $navigation = document.querySelector('.nav');
+
+    // // 로그인 페이지만,,,
+    // $page.style.display = 'none';
+    // $navigation.style.visibility = 'hidden';
+
 }
 
 //////////////////////////// 코드 실행 ////////////////////////////
 
 (function () {
+
+
+    initialize();
+
+    const $loginSection = document.querySelector('#note > .loginSection');
+    if ($loginSection != null) {
+        eventLogin();
+    }
 
     // hover to show dropdown menu
     eventDropDown();
@@ -154,11 +193,6 @@ function eventClickRemove() {
     eventListenerIcon('fa-heart');
     eventListenerIcon('fa-hospital');
     eventListenerIcon('fa-square-check');
-
-
-    // if (checkLogin()) {
-    //     eventLogin();
-    // }
 
 
 })();
