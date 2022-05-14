@@ -231,8 +231,8 @@ button {
 
 .wrapper section #main #note .image {
   /* background: lightblue; */
-  left: 10px;
-  top: 10px;
+  left: 200px;
+  top: 200px;
   position: absolute;
   cursor: pointer;
 }
@@ -276,37 +276,31 @@ button {
 }
 
 .wrapper section #main #note .loginSection #login .loginBlock #id {
+  box-sizing: border-box;
+  padding-left: 5px;
   width: 100%;
 }
 
 .wrapper section #main #note .loginSection #login .loginBlock #password {
+  box-sizing: border-box;
+  padding-left: 5px;
   width: 100%;
 }
 
-.wrapper section #main #note .loginSection #login .idBlock .idIcon {
+.wrapper section #main #note .loginSection #login .loginBlock .loginIcon {
   display: flex;
   width: 10%;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
-}
-
-.wrapper section #main #note #login .pwBlock .pwIcon {
-  display: flex;
-  width: 10%;
-  align-items: center;
-  justify-content: center;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .wrapper section #main #note .loginSection .loginButton #loginBtn {
   width: 40%;
   height: 50px;
   border-radius: 3px;
-  /* border: 1px solid #000; */
-  margin: 30px 200px;
+  margin: 50px 210px;
   cursor: pointer;
-  /* background: url("https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg") no-repeat center / 100% 100%; */
 }
 
 /* adding icon */

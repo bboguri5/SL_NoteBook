@@ -2,103 +2,102 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- fontawesome css: https://fontawesome.com -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- fontawesome css: https://fontawesome.com -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-  <!-- reset.css -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+<!-- reset.css -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
 
-  <!-- linear icons -->
-  <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
+<!-- linear icons -->
+<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" />
 
-  <!-- custom css -->
-  <link rel="stylesheet" href="css/main.css" />
+<!-- custom css -->
+<link rel="stylesheet" href="css/main.css" />
 
-  <!-- custom js -->
-  <script src="js/app.js" defer></script>
-  <title>Document</title>
+<!-- custom js -->
+<script src="js/app.js" defer></script>
+<title>Document</title>
 </head>
 
 <body>
-  <div class="wrapper">
-    <section>
-      <div id="main">
+<div class="wrapper">
+  <section>
+    <div id="main">
         <div id="springArea">
-          <div class="spring">
-            <span></span>
-          </div>
-          <div class="spring">
-            <span></span>
-          </div>
-          <div class="spring">
-            <span></span>
-          </div>
-          <div class="spring">
-            <span></span>
-          </div>
-          <div class="spring">
-            <span></span>
-          </div>
-          <div class="spring">
-            <span></span>
-          </div>
-          <div class="spring">
-            <span></span>
-          </div>
+        <div class="spring">
+          <span></span>
         </div>
-        <div id="note">
-
-          <div class="loginSection">
-            <div id="login">
-              <div class="idBlock loginBlock">
-                <div class="idIcon"><i class="fa-solid fa-id-badge fa-2x"></i></div>
-                <input id="id" type="text" placeholder="아이디를 입력하세요">
-              </div>
-              <div class="pwBlock loginBlock">
-                <div class="pwIcon"><i class="fa-solid fa-key fa-2x"></i></div>
-                <input id="password" type="password" type="text" placeholder="비밀번호를 입력하세요">
-              </div>
-            </div>
-            <div class="loginButton">
-              <button id="loginBtn"><i class="fa-solid fa-lock fa-2x"></i></button>
-            </div>
-          </div>
-          <div class="page">
-            <div contenteditable="true" class="page page2 txtContent"></div>
-
-          </div>
-            <div class="noteBtnList">
-              <button class="prev"></button>
-              <button class="next fa-solid fa-plus fa-0.5x"></button>
-            </div>
-            <span class="pageNum">- 1 -</span>
-          <!-- <textarea class="txtContent" id="txtContent"></textarea> -->
+        <div class="spring">
+          <span></span>
         </div>
-        <!-- <textarea class="txtContent" id="txtContent"></textarea> -->
-      </div>
-
-      <aside class="nav">
-        <div class="iconDropdown">
-          <button id="selectIcon">Select Icon
-            <i class="fa-solid fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <i class="fa-regular fa-address-card"></i>
-            <i class="fa-regular fa-credit-card"></i>
-            <i class="fa-regular fa-bell"></i>
-            <i class="fa-regular fa-hand-point-up"></i>
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-regular fa-hospital"></i>
-            <i class="fa-regular fa-square-check"></i>
+        <div class="spring">
+          <span></span>
+        </div>
+        <div class="spring">
+          <span></span>
+        </div>
+        <div class="spring">
+          <span></span>
+        </div>
+        <div class="spring">
+          <span></span>
+        </div>
+        <div class="spring">
+          <span></span>
         </div>
       </div>
+      <div id="note">
 
-      </aside>
-    </section>
-  </div>
+        <div class="loginSection">
+          <div id="login">
+            <div class="idBlock loginBlock">
+              <div class="loginIcon idIcon"><i class="fa-solid fa-id-badge fa-2x"></i></div>
+              <input id="id" type="text" placeholder="아이디를 입력하세요">
+            </div>
+            <div class="pwBlock loginBlock">
+              <div class="loginIcon pwIcon"><i class="fa-solid fa-key fa-2x"></i></div>
+              <input id="password" type="password" type="text" placeholder="비밀번호를 입력하세요">
+            </div>
+          </div>
+          <div class="loginButton">
+            <button id="loginBtn"><i class="fa-solid fa-lock fa-2x"></i></button>
+          </div>
+        </div>
+        <div class="page">
+          <div contenteditable="true" class="page page2 txtContent"></div>
+
+        </div>
+          <div class="noteBtnList">
+            <button class="prev"></button>
+            <!-- <button class="next"> <i class="fa-solid fa-plus fa-0.5x"></i></button> -->
+            <button class="next">+</button>
+          </div>
+          <span class="pageNum">- 1 -</span>
+      </div>
+    </div>
+
+    <aside class="nav">
+      <div class="iconDropdown">
+        <button id="selectIcon">Select Icon
+          <i class="fa-solid fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <i class="fa-regular fa-address-card"></i>
+          <i class="fa-regular fa-credit-card"></i>
+          <i class="fa-regular fa-bell"></i>
+          <i class="fa-regular fa-hand-point-up"></i>
+          <i class="fa-regular fa-heart"></i>
+          <i class="fa-regular fa-hospital"></i>
+          <i class="fa-regular fa-square-check"></i>
+      </div>
+    </div>
+
+    </aside>
+  </section>
+</div>
 </body>
 
 </html>

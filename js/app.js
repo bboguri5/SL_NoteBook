@@ -10,6 +10,7 @@ let newPosX = 0,
 
 // 드랍다운 안에 있는 아이콘 클릭 이벤트
 // has to be fa-regular :)
+
 function eventListenerIcon($iconName) {
 
     const $listenIcon = document.querySelector(`.dropdown-content > .${$iconName}`);
@@ -77,7 +78,7 @@ function validateLogin() {
 
     // if the id is different or empty, login failed
     if ($id.value != 'julie' || $id.value.trim() === '') {
-        $id.style.background = 'lightgrey';
+        $id.style.background = '#dcdcdc';
         $id.setAttribute('placeholder', '아이디가 틀렸습니다. 다시 입력해주세요');
         $id.value = '';
         return false;
@@ -88,6 +89,7 @@ function validateLogin() {
         $pwd.style.background = 'lightgrey';
         $pwd.setAttribute('placeholder', '비밀번호가 틀렸습니다. 다시 입력해주세요');
         $pwd.value = '';
+        $id.style.background = '';
         return false;
     }
 
@@ -111,10 +113,14 @@ function eventLogin() {
             const $loginSection = document.querySelector('#note > .loginSection');
             const $page = document.querySelector('#note > .page');
             const $navigation = document.querySelector('.nav');
+            const $noteBtnList = document.querySelector('.noteBtnList');
+            const $pageNum = document.querySelector('.pageNum');
 
             $loginSection.style.display = 'none';
             $page.style.display = 'block';
             $navigation.style.visibility = '';
+            $noteBtnList.style.display = '';
+            $pageNum.style.display = '';
 
         }
 
@@ -164,9 +170,14 @@ function initialize() {
     const $page = document.querySelector('#note > .page');
     const $navigation = document.querySelector('.nav');
 
+    const $noteBtnList = document.querySelector('.noteBtnList');
+    const $pageNum = document.querySelector('.pageNum');
+
     // 로그인 페이지만,,,
-    $page.style.display = 'none';
-    $navigation.style.visibility = 'hidden';
+    // $page.style.display = 'none';
+    // $navigation.style.visibility = 'hidden';
+    // $noteBtnList.style.display = 'none';
+    // $pageNum.style.display = 'none';
 
 }
 
@@ -242,6 +253,7 @@ function ShowPage2() {
   /* 선택한 페이지 보여주는 함수 */
   function ShowMeThePage() {
     $pageNum.textContent = `- ${globalpageNumber} -`;
+    console.log(`!!!!!!!!!!!!!!: ${noteData[globalpageNumber - 1]}`);
     $page2.textContent = noteData[globalpageNumber - 1].text;
     $next.textContent = noteData[globalpageNumber - 1].isAddOrNext;
 
