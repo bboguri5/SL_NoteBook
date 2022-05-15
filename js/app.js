@@ -197,7 +197,7 @@ function initialize() {
   eventListenerIcon("fa-square-check");
 
   ShowMeThePage();
-  
+  ShowMeTheTable();
 })();
 
 // Page 구현
@@ -282,6 +282,7 @@ function ShowMeThePage() {
   let pageCount = 1;
   const $btnList = document.querySelector(".noteBtnList");
 
+  /* next , prev 클릭 시 이벤트 */
   $btnList.addEventListener("click", function (e) {
     const plus = "fa-plus";
     const prev = "fa-angle-left";
@@ -310,4 +311,113 @@ function ShowMeThePage() {
         : ShowPage($next, $txtContent, $pageNum);
     }
   });
+}
+
+
+function ShowMeTheTable()
+{
+  let TnewPosX = 0,
+  TnewPosY = 0,
+  TstartPosX = 0,
+  TstartPosY = 0;
+  
+  /* table 가상 돔 리턴 */
+  function MakeTableDom(columsCount,rowsCount)
+  {
+    const $virtual = document.createDocumentFragment();
+      const $newDiv = document.createElement('div');
+      const $newTable = document.createElement('table');
+      const $newTh = document.createElement('th');
+    
+      $newDiv.classList.add('tableBox')
+      $newTable.classList.add('table');
+      $newTh.colSpan = rowsCount;
+      $newTh.contentEditable = true;
+      $newDiv.appendChild($newTable);
+      $newTable.appendChild($newTh);
+    
+      for (let y = 0; y < columsCount; y++) {
+        const $newTr = document.createElement('tr');
+        $newTable.appendChild($newTr);
+    
+        for (let x = 0; x < rowsCount; x++) {
+          const $newTd = document.createElement('td');
+          $newTd.contentEditable = true;
+          $newTr.appendChild($newTd);
+        }
+      }
+
+      $virtual.appendChild($newDiv);
+      return $virtual;
+  }
+
+
+    const $btnAddTable = document.querySelector('.btnAddTable');
+
+    /* 표만들기 클릭 시  */
+    $btnAddTable.addEventListener('click', function (e) {
+
+    const $page = document.querySelector('.page');
+    const columsCount = +prompt('열 숫자입력');
+    const rowsCount = +prompt('행 숫자입력');
+
+    $page.appendChild(MakeTableDom(columsCount,rowsCount));
+
+    MoveTable();
+    RemoveTable();
+      
+    /* 표 움직이기 */
+    function MoveTable() {
+
+      const $TboxList = document.querySelectorAll(".tableBox");
+    
+      $TboxList.forEach((Tbox) =>
+      Tbox.addEventListener("mousedown", function (e) {
+        if (!e.target.matches('.tableBox')) return;  
+        
+        e.preventDefault();
+
+          TstartPosX = e.clientX;
+          TstartPosY = e.clientY;
+
+          document.addEventListener("mousemove", mouseTableMove);
+    
+          document.addEventListener("mouseup", function () {
+            document.removeEventListener("mousemove", mouseTableMove);
+          });
+    
+
+          function mouseTableMove(e) {
+            // calculate the new position
+            TnewPosX = TstartPosX - e.clientX;
+            TnewPosY = TstartPosY - e.clientY;
+            // with each move we also want to update the start X and Y
+            TstartPosX = e.clientX;
+            TstartPosY = e.clientY;
+            
+            // set the element's new position:Z
+            Tbox.style.top = Tbox.offsetTop - TnewPosY + "px";
+            Tbox.style.left = Tbox.offsetLeft - TnewPosX + "px";
+          }
+        })
+      );
+    }
+          
+    /* 표 삭제 */
+    function RemoveTable() {
+      const trashList = document.querySelectorAll(".tableBox");
+  
+      trashList.forEach((el) =>
+        el.addEventListener("dblclick", function (e) {
+          if (!e.target.matches('.tableBox')) return;  
+    
+          console.log(e);
+         
+          e.preventDefault();
+    
+          el.parentElement.removeChild(el);
+        })
+      );
+    }
+  })
 }
