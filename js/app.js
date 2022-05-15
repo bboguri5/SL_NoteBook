@@ -220,6 +220,9 @@ function ShowPage2() {
       isAddOrNext: "+",
       IsPrev: false,
       tags: "",
+      icon: {
+        iconArr: []
+      },
     },
   ];
 
@@ -231,11 +234,16 @@ function ShowPage2() {
       isAddOrNext: "+",
       IsPrev: true,
       tags: "",
+      icon: {
+        iconArr: []
+      },
     };
 
     noteData[globalpageNumber - 1] = defalutNoteData; //새 객체 추가
     $pageNum.textContent = `- ${globalpageNumber}- `; //추가된 페이지 번호만 변경
     $page2.textContent = ""; // 내용 리셋
+    
+
     console.log("AddNewPageObject :", noteData);
   }
 
@@ -247,18 +255,59 @@ function ShowPage2() {
     if (target.classList.contains("prev")) return;
     noteData[globalpageNumber - 1].isAddOrNext = ">";
 
+    //////////////////////////////////////////////////
+    const $imageList = document.querySelectorAll(".image");
+    // 이모티콘이 있을경우, 객체에 저장하고 removeChild
+    if ($imageList != null) {
+      for (let image of $imageList) {
+        console.log(image);
+        noteData[globalpageNumber - 1].icon.iconArr.push(image);
+        $page.removeChild(image);
+      }
+    }
+    //////////////////////////////////////////////////
+
     console.log("SavePageData(next)만 나옴 :", noteData[globalpageNumber - 1]);
   }
 
   /* 선택한 페이지 보여주는 함수 */
-  function ShowMeThePage() {
+  function ShowMeThePage(whereTo) {
     $pageNum.textContent = `- ${globalpageNumber} -`;
-    console.log(`!!!!!!!!!!!!!!: ${noteData[globalpageNumber - 1]}`);
     $page2.textContent = noteData[globalpageNumber - 1].text;
     $next.textContent = noteData[globalpageNumber - 1].isAddOrNext;
 
+    //////////////////////////////////////////////////
+    // 이모티콘이 있었을 경우, 객체에 저장된 img appendChild
+
+    if (noteData[globalpageNumber - 1].icon != null) {
+      for (let image of noteData[globalpageNumber - 1].icon.iconArr) {
+        $page.appendChild(image);      
+      }
+    }
+    
+    if (whereTo === 'prev') {
+    if (noteData[globalpageNumber].icon != null) {
+      for (let image of noteData[globalpageNumber].icon.iconArr) {
+        $page.removeChild(image);      
+      }
+    }
+  } else {
+
+    if (noteData[globalpageNumber - 2].icon != null) {
+      for (let image of noteData[globalpageNumber - 2].icon.iconArr) {
+        $page.removeChild(image);      
+      }
+    }
+  }
+
+    //////////////////////////////////////////////////
+
     console.log("ShowMeThePage :", noteData[globalpageNumber - 1]);
   }
+
+    //////////////////////////////////////////////////
+  const $page = document.querySelector(".isIcon");
+    //////////////////////////////////////////////////
 
   const $page2 = document.querySelector(".page2");
   const $next = document.querySelector(".next");
@@ -282,10 +331,10 @@ function ShowPage2() {
           $next.previousElementSibling.textContent = '';
         }
       }
-      ShowMeThePage();
+      ShowMeThePage('prev');
     } else {
       globalpageNumber++;
-      $next.textContent === "+" ? AddNewPageObject() : ShowMeThePage();
+      $next.textContent === "+" ? AddNewPageObject() : ShowMeThePage('next');
     }
   });
 }
