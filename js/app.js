@@ -252,20 +252,21 @@ function ShowPage2() {
     noteData[globalpageNumber - 1].text = $page2.textContent;
     noteData[globalpageNumber - 1].tags = "추가시 표/이미지태그";
 
-    if (target.classList.contains("prev")) return;
-    noteData[globalpageNumber - 1].isAddOrNext = ">";
-
     //////////////////////////////////////////////////
     const $imageList = document.querySelectorAll(".image");
     // 이모티콘이 있을경우, 객체에 저장하고 removeChild
     if ($imageList != null) {
       for (let image of $imageList) {
-        console.log(image);
-        noteData[globalpageNumber - 1].icon.iconArr.push(image);
+        if (!noteData[globalpageNumber - 1].icon.iconArr.includes(image)){
+          noteData[globalpageNumber - 1].icon.iconArr.push(image);
+        }
         $page.removeChild(image);
       }
     }
     //////////////////////////////////////////////////
+
+    if (target.classList.contains("prev")) return;
+    noteData[globalpageNumber - 1].isAddOrNext = ">";
 
     console.log("SavePageData(next)만 나옴 :", noteData[globalpageNumber - 1]);
   }
@@ -281,25 +282,11 @@ function ShowPage2() {
 
     if (noteData[globalpageNumber - 1].icon != null) {
       for (let image of noteData[globalpageNumber - 1].icon.iconArr) {
+        console.log(image.innerHTML);
         $page.appendChild(image);      
       }
     }
     
-    if (whereTo === 'prev') {
-    if (noteData[globalpageNumber].icon != null) {
-      for (let image of noteData[globalpageNumber].icon.iconArr) {
-        $page.removeChild(image);      
-      }
-    }
-  } else {
-
-    if (noteData[globalpageNumber - 2].icon != null) {
-      for (let image of noteData[globalpageNumber - 2].icon.iconArr) {
-        $page.removeChild(image);      
-      }
-    }
-  }
-
     //////////////////////////////////////////////////
 
     console.log("ShowMeThePage :", noteData[globalpageNumber - 1]);
@@ -320,7 +307,7 @@ function ShowPage2() {
 
     const $target = e.target;
     SavePageData($target); // 버튼을 클릭하면 무조건 저장
-    console.log(globalpageNumber);
+    // console.log(globalpageNumber);
 
     $next.previousElementSibling.textContent = "<";
 
