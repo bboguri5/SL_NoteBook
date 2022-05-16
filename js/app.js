@@ -207,6 +207,7 @@ function ShowMeThePage() {
       pageNum: 1,
       text: "",
       tags: [],
+
     },
   ];
 
@@ -253,6 +254,7 @@ function ShowMeThePage() {
     $pageNum.textContent = `- ${noteData[pageCount - 1].pageNum} -`;
     $txtContent.innerHTML = '';
 
+
     console.log("AddNewPageObject :", noteData);
   }
 
@@ -263,6 +265,7 @@ function ShowMeThePage() {
 
     $pageNum.textContent = `- ${noteData[pageCount - 1].pageNum} -`;
     $txtContent.innerHTML = noteData[pageCount - 1].text;
+
 
     for (node of noteData[pageCount - 1].tags) { // 태그 추가
       $txtContent.parentElement.appendChild(node);
@@ -280,6 +283,7 @@ function ShowMeThePage() {
   }
 
   let pageCount = 1;
+  
   const $btnList = document.querySelector(".noteBtnList");
 
   /* next , prev 클릭 시 이벤트 */
@@ -287,6 +291,7 @@ function ShowMeThePage() {
     const plus = "fa-plus";
     const prev = "fa-angle-left";
     const $target = e.target;
+
 
     const $txtContent = document.querySelector(".txtContent");
     const $next = document.querySelector(".next");
@@ -309,6 +314,7 @@ function ShowMeThePage() {
       $next.classList.contains(plus)
         ? AddNewPage($pageNum, $txtContent)
         : ShowPage($next, $txtContent, $pageNum);
+
     }
   });
 }
