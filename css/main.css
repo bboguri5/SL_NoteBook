@@ -161,40 +161,6 @@ button {
   z-index: -1;
 }
 
-
-
-/* 삭제예정 */
-/*.wrapper aside.nav .btnList {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.wrapper aside.nav .btnList button {
-  background: yellow;
-  border-radius: 22px;
-  margin-bottom: 5px;
-}
-
-.wrapper aside.nav .btnList > button {
-  width: 200px;
-  height: 50px;
-}
-
-.wrapper aside.nav .btnList .dan button {
-  width: 100px;
-  height: 50px;
-}
-
-.wrapper aside.nav .showResult {
-  background: greenyellow;
-  width: 220px;
-  height: 300px;
-  border-radius: 22px;
-} */
-
-/* added */
-
 .wrapper section #main #note .txtContent {
   /* /////////////////////////////////////////// remove scroll /////////////////////////////////////////////// */
   overflow: auto;
@@ -228,13 +194,13 @@ button {
 {
   padding-top: 20px;
   background: rgb(243, 240, 240);
-  border: 1px solid #000;
   cursor: pointer;
   position: absolute;
   left: 50%;
   top: 50%;
-  opacity: 60%;
   border-radius: 10px;
+
+
 
 }
 .table
@@ -247,6 +213,7 @@ button {
   font-size: 1.3em;
   text-align: center;
   border-collapse: collapse;
+  
 }
 th
 {
