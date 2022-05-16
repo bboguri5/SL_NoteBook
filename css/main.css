@@ -1,3 +1,15 @@
+
+/* font */
+@font-face {
+font-family: 'naver_규리의일기'; 
+src: url(../font/나눔손글씨-규리의-일기.woff) format("woff"); 
+}
+@font-face {
+  font-family: 'naver_NanumSquareRoundB';
+  src: url(../font/NanumSquareRoundB.woff) format("woff");
+}
+
+
 /* reset */
 a {
   color: inherit;
@@ -13,11 +25,13 @@ button {
 
 /* layout */
 .wrapper {
+ 
   background: #e9ecef;
   padding-top: 64px;
   height: 100vh;
   width: 100%;
-  background: url('https://img.freepik.com/free-photo/flat-lay-photo-of-office-desk-with-laptop-copy-space-background_1150-45598.jpg?w=2000') no-repeat center / 100% 100%;
+  background: url("https://img.freepik.com/free-photo/flat-lay-photo-of-office-desk-with-laptop-copy-space-background_1150-45598.jpg?w=2000")
+    no-repeat center / 100% 100%;
 }
 
 .wrapper section {
@@ -79,9 +93,7 @@ button {
   border-right: 3px solid #000;
 }
 
-
 .wrapper #main #note .page {
-
   position: absolute;
   top: 0;
   left: 0;
@@ -92,43 +104,34 @@ button {
   border-radius: 20px;
 }
 
-.wrapper #main #note .page.page2 {
-  /* background: yellow; */
-  padding: 80px;
-  box-sizing: border-box;
+.wrapper #main #note .noteBtnList {
+  font-size: 70px;
+  font-weight: 700;
 }
 
-.wrapper #main #note .noteBtnList
-{
-    font-size: 70px;
-    font-weight: 700;
-}
-
-.wrapper #main #note .noteBtnList > .prev
-{
+.wrapper #main #note .noteBtnList > .prev {
   position: absolute;
   top: 50%;
   left: 10%;
   cursor: pointer;
 }
 
-.wrapper #main #note .noteBtnList > .next
-{
+.wrapper #main #note .noteBtnList > .next {
   position: absolute;
   top: 50%;
   right: 5%;
   cursor: pointer;
 }
 
-.wrapper #main #note>span.pageNum
-{
+.wrapper #main #note > span.pageNum {
   position: absolute;
-  right: 50%;
-  bottom: 5%;
-  font-size:20px;
+  right: 46%;
+  bottom: 3%;
+  font-size: 30px;
+  font-family: 'naver_NanumSquareRoundB','맑은 고딕','Malgun Gothic','돋움',sans-serif;
+  font-weight: 700;
 }
-.hidden
-{
+.hidden {
   z-index: -1;
 }
 
@@ -141,18 +144,15 @@ button {
   /* transform: rotate3d(0, 0, -360deg); */
   /* transform: rotateY(-360deg); */
   animation: move 1s 1;
-
 }
 
 @keyframes move {
   0% {
     transform: rotateY(0);
-
   }
 
   100% {
     transform: rotateY(-360deg);
-
   }
 }
 
@@ -161,72 +161,25 @@ button {
   z-index: -1;
 }
 
-.wrapper aside.nav {
-  /* background: #eec6c6; */
-  background: #fcd8d4;
-
-  border-radius: 22px;
-  height: 300px;
-  width: 30%;
-  margin-top: 200px;
-  margin-right: 15px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-
-  box-shadow: 10px 5px 10px rgb(70, 69, 69);
-}
-
-.wrapper aside.nav .btnList {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.wrapper aside.nav .btnList button {
-
-  background: yellow;
-  border-radius: 22px;
-  margin-bottom: 5px;
-}
-
-.wrapper aside.nav .btnList>button {
-
-  width: 200px;
-  height: 50px;
-}
-
-.wrapper aside.nav .btnList .dan button {
-  width: 100px;
-  height: 50px;
-}
-
-.wrapper aside.nav .showResult {
-  background: greenyellow;
-  width: 220px;
-  height: 300px;
-  border-radius: 22px;
-}
-
-/* added */
-
 .wrapper section #main #note .txtContent {
   /* /////////////////////////////////////////// remove scroll /////////////////////////////////////////////// */
   overflow: auto;
   resize: none;
-  padding-top: 50px;
-  padding-left: 50px;
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  font-size: 20px;
-  line-height: 1.34em;
-  background: url(https://i.pinimg.com/564x/b0/22/6c/b0226cec295531265c23976654b3e709.jpg) no-repeat -30px -30px / 150% 150%;
-  border: 1px solid #000;
+  line-height: 0.888em;
+  background: url(https://i.pinimg.com/564x/b0/22/6c/b0226cec295531265c23976654b3e709.jpg)
+    no-repeat -30px -30px / 150% 150%;
   position: relative;
   overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid #000;
+
+  padding: 50px 120px 0px 120px;
+  font-family: 'naver_규리의일기','맑은 고딕','Malgun Gothic','돋움',sans-serif;
+  font-weight: 700  ;
+  font-size: 30px;
 }
 
 .wrapper section #main #note .image {
@@ -237,12 +190,60 @@ button {
   cursor: pointer;
 }
 
+.wrapper section #main #note .tableBox
+{
+  padding-top: 20px;
+  background: rgb(243, 240, 240);
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 10px;
+
+
+
+}
+.table
+{
+  font-family: 'naver_규리의일기','맑은 고딕','Malgun Gothic','돋움',sans-serif;
+  font-weight: 700;
+  color: #000;
+  margin: 8px 18px 18px 8px;
+  border: 1px solid #000;
+  font-size: 1.3em;
+  text-align: center;
+  border-collapse: collapse;
+  
+}
+th
+{
+  padding-top: 10px;
+  height: 30px;
+  border: 2px solid #000;
+}
+
+td
+{
+  vertical-align: top;
+  min-width: 120px;
+  max-width: 240px;
+  min-height: 32px;
+
+  width: 30px;
+  height: 10px;
+  padding: 10px;
+
+  border: 2px dashed #000;
+	white-space: nowrap;
+}
+
 .wrapper section #main #note .loginSection {
   width: 100%;
   height: 100%;
   /* border: 3px solid #000; */
   border-radius: 30px;
-  background: url('https://t1.daumcdn.net/cfile/tistory/9991503D5B7EC8942E') no-repeat center / 100% 100%;
+  background: url("https://t1.daumcdn.net/cfile/tistory/9991503D5B7EC8942E")
+    no-repeat center / 100% 100%;
   /* background: red; */
   padding-top: 200px;
   box-sizing: border-box;
@@ -305,6 +306,31 @@ button {
 
 /* adding icon */
 
+.wrapper aside.nav {
+  /* background: #eec6c6;  */
+   background: #fcd8d4;
+ 
+   border-radius: 22px;
+   height: 300px;
+   width: 30%;
+   margin-top: 200px;
+   margin-right: 15px;
+ 
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+ 
+   box-shadow: 10px 5px 10px rgb(70, 69, 69);
+}
+.wrapper .nav button
+{
+  padding-top: 5px;
+  font-weight: 700;
+  font-size: 20px;
+  font-family: 'naver_NanumSquareRoundB','맑은 고딕','Malgun Gothic','돋움',sans-serif;
+} 
+
 .wrapper section .nav .iconDropdown {
   width: 80%;
   height: 50px;
@@ -338,7 +364,6 @@ button {
   border-radius: 0 0 20px 20px;
   padding-bottom: 10px;
   padding-top: 10px;
-
 }
 
 .wrapper section .nav .iconDropdown .dropdown-content i {
@@ -348,7 +373,6 @@ button {
   text-decoration: none;
   display: block;
   text-align: left;
-
 }
 
 /* .wrapper section .nav .iconDropdown #selectIcon:active {
@@ -359,10 +383,13 @@ button {
 
 .wrapper section .nav .iconDropdown .dropdown-content i:hover {
   background-color: #ddd;
-
 }
 
-.zzz
+.wrapper section .nav .btnAddTable
 {
-  border-radius: 30px 30px 0 0;
+  background: rgb(193, 191, 191);
+  border-radius: 30px;
+  cursor: pointer;
+  width: 80%;
+  height: 50px;
 }
