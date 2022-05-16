@@ -252,7 +252,6 @@ function ShowMeThePage() {
     noteData.push(defalutNoteData);
     $pageNum.textContent = `- ${noteData[pageCount - 1].pageNum} -`;
     $txtContent.innerHTML = '';
-
     console.log("AddNewPageObject :", noteData);
   }
 
@@ -280,6 +279,7 @@ function ShowMeThePage() {
   }
 
   let pageCount = 1;
+
   const $btnList = document.querySelector(".noteBtnList");
 
   /* next , prev 클릭 시 이벤트 */
