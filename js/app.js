@@ -75,7 +75,7 @@ function validateLogin() {
   const $pwd = document.getElementById("password");
 
   // if the id is different or empty, login failed
-  if ($id.value != "julie" || $id.value.trim() === "") {
+  if ($id.value != "notebook" || $id.value.trim() === "") {
     $id.style.background = "#dcdcdc";
     $id.setAttribute("placeholder", "아이디가 틀렸습니다. 다시 입력해주세요");
     $id.value = "";
@@ -83,7 +83,7 @@ function validateLogin() {
   }
 
   // if the password is different or empty, login failed
-  if ($pwd.value != "haewon" || $pwd.value.trim() === "") {
+  if ($pwd.value != "123456" || $pwd.value.trim() === "") {
     $pwd.style.background = "lightgrey";
     $pwd.setAttribute(
       "placeholder",
@@ -168,10 +168,10 @@ function initialize() {
   const $pageNum = document.querySelector(".pageNum");
 
   // 로그인 페이지만,,,
-  // $page.style.display = 'none';
-  // $navigation.style.visibility = 'hidden';
-  // $noteBtnList.style.display = 'none';
-  // $pageNum.style.display = 'none';
+  $page.style.display = 'none';
+  $navigation.style.visibility = 'hidden';
+  $noteBtnList.style.display = 'none';
+  $pageNum.style.display = 'none';
 }
 
 //////////////////////////// 코드 실행 ////////////////////////////
